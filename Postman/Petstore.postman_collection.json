@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "f288194a-86e3-49b3-8dcd-32486542f4bb",
+		"name": "Petstore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31806802"
+	},
+	"item": [
+		{
+			"name": "Create new user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response in JSON format\", function() {",
+							"  pm.expect(pm.response.headers.get(\"content-type\")).to.include(\"application/json\");",
+							"});",
+							"",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {\r\n    \"id\": {{user_id}},\r\n    \"username\": \"BOND 007\",\r\n    \"firstName\": \"James\",\r\n    \"lastName\": \"Bond\",\r\n    \"email\": \"bond@007.com\",\r\n    \"password\": \"bondjustbond\",\r\n    \"phone\": \"007007007\",\r\n    \"userStatus\": 0\r\n  }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}createWithList",
+					"host": [
+						"{{base_url}}createWithList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find user by username",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 800ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(800);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response in JSON format\", function() {\r",
+							"  pm.expect(pm.response.headers.get(\"content-type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}{{username}}",
+					"host": [
+						"{{base_url}}{{username}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change user info by username",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 800ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(800);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response in JSON format\", function() {\r",
+							"  pm.expect(pm.response.headers.get(\"content-type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": {{user_id}},\r\n  \"username\": \"{{username}}\",\r\n  \"firstName\": \"Charlie\",\r\n  \"lastName\": \"Chaplin\",\r\n  \"email\": \"charlie@mail.uk\",\r\n  \"password\": \"cccharlie\",\r\n  \"phone\": \"58595959\",\r\n  \"userStatus\": 0\r\n}\r\n\r\n[\r\n  {\r\n    \"id\": {{user_id}},\r\n    \"username\": \"BOND 007\",\r\n    \"firstName\": \"James\",\r\n    \"lastName\": \"Bond\",\r\n    \"email\": \"bond@007.com\",\r\n    \"password\": \"bondjustbond\",\r\n    \"phone\": \"007007007\",\r\n    \"userStatus\": 0\r\n  }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}{{username}}",
+					"host": [
+						"{{base_url}}{{username}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 800ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(800);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response in JSON format\", function() {\r",
+							"  pm.expect(pm.response.headers.get(\"content-type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}{{username}}",
+					"host": [
+						"{{base_url}}{{username}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
