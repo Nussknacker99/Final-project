@@ -1,0 +1,16 @@
+name: Script Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Summer_time_script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Run summer-time script
+      run: |
+        sh summer-time.sh
