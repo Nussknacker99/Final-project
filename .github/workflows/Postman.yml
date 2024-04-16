@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@main
       - uses: mat-ball/newman-action@main
         with:
-          collection: Petstore.postman_collection.json
-          environment: Petstore.postman_environment.json
+          collection: Postman/Petstore.postman_collection.json
+          environment: Postman/Petstore.postman_environment.json
 
     
