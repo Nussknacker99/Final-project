@@ -13,4 +13,4 @@ jobs:
     - uses: actions/checkout@v4
     - name: Run summer-time script
       run: |
-        sh summer-time.sh
+        sh Bash/summer-time.sh
