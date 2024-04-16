@@ -14,13 +14,23 @@ on:
   workflow_dispatch:
 
 jobs:
-  newman:
+  Run_postman_collection:
     runs-on: ubuntu-latest
+    needs:
+    - run_script
+
     steps:
-      - uses: actions/checkout@main
-      - uses: mat-ball/newman-action@main
+      - uses: actions/checkout@v4
+      
+      - name: Node.js install
+        uses: actions/setup-node@v3
         with:
-          collection: Postman/Petstore.postman_collection.json
-          environment: Postman/Petstore.postman_environment.json
+         node-version: '20'
+
+      - name: Newman install
+        run: npm install -g newman
+
+      - name: Run Postman collection
+        run: newman run Postman/Petstore.postman_collection.json -e Postman/Petstore.postman_environment.json
 
     
