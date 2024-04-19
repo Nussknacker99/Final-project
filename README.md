@@ -3,5 +3,4 @@
 <h3 align="center">I'm starting my journey into the world of QA!</h3>
 
 ### My contacts:
-- Telegram: [@Nuss99](http://t.me/Nuss99)
 - E-mail: adastrum99@gmail.com
